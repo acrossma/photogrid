@@ -26,6 +26,8 @@ const sortedMedia = Object.entries(mediaFiles).sort(([pathA], [pathB]) =>
       if (isVideo) {
         const vidWidth = 16;
         const vidHeight = 9;
+        // Explicitly cast the resolved source to a string for TypeScript
+        const videoSrc = resolved.default as string;
         return (
           <div
             class="video-wrapper cursor-pointer"
@@ -39,7 +41,7 @@ const sortedMedia = Object.entries(mediaFiles).sort(([pathA], [pathB]) =>
               class="grid-video"
               onclick="this.muted = !this.muted; this.controls = !this.muted;"
             >
-              <source src={resolved.default} type="video/mp4" />
+              <source src={videoSrc} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
