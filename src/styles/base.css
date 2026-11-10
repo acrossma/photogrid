@@ -12,3 +12,21 @@ body {
   background-color: light-dark(var(--bg), var(--bg-dark));
   font-family: var(--font);
 }
+
+a,
+.video-wrapper {
+  flex-grow: calc(var(--width) * (100000 / var(--height)));
+  flex-basis: calc(var(--min-height) * (var(--width) / var(--height)));
+  aspect-ratio: var(--width) / var(--height);
+  overflow: hidden;
+  opacity: 1;
+  transition: all 0.05s ease-in-out;
+}
+
+a img,
+.grid-video {
+  display: block;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
